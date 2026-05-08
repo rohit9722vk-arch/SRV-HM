@@ -1,35 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('header');
+    const header = document.getElementById('main-header');
+    const logo = document.querySelector('.brand-logo');
     const cartBtn = document.getElementById('cart-btn');
-    let count = 0;
+    let cartItems = 0;
 
-    // 1. Shrink Header on Scroll
+    // Scroll Effect: Shrink Header
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.style.padding = '10px 50px';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+        if (window.scrollY > 80) {
+            header.style.padding = '15px 50px';
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            logo.style.fontSize = '28px';
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
         } else {
-            header.style.padding = '20px 50px';
+            header.style.padding = '30px 50px';
+            header.style.backgroundColor = '#fff';
+            logo.style.fontSize = '36px';
             header.style.boxShadow = 'none';
         }
     });
 
-    // 2. Add to Cart Functionality
+    // Cart Simulation
     window.addToCart = () => {
-        count++;
-        cartBtn.innerText = `Shopping bag (${count})`;
+        cartItems++;
+        cartBtn.innerText = `Shopping Bag (${cartItems})`;
         
-        // Visual feedback
-        cartBtn.style.color = '#E5001C';
+        // Quick visual feedback
+        cartBtn.style.color = '#777';
         setTimeout(() => {
-            cartBtn.style.color = '#222';
-        }, 500);
+            cartBtn.style.color = '#1a1a1a';
+        }, 300);
+        
+        console.log(`VIUL: Item added. Total items: ${cartItems}`);
     };
 
-    // 3. Simple Search Interaction
-    const searchInput = document.querySelector('.search-box input');
-    searchInput.addEventListener('focus', () => {
-        searchInput.style.width = '200px';
-        searchInput.style.transition = 'width 0.4s ease';
-    });
+    console.log("VIUL Brand Framework Loaded.");
 });
