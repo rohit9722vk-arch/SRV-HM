@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIUL | Premium Fashion & Lifestyle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="announcement-bar">
-        COMPLIMENTARY SHIPPING ON ALL ORDERS OVER Rs.1999
+        COMPLIMENTARY SHIPPING ON ALL ORDERS OVER Rs.1999 | SPRING COLLECTION NOW LIVE
     </div>
 
     <header id="main-header">
         <div class="top-bar">
             <div class="search-box">
-                <input type="text" placeholder="Search Collection">
+                <input type="text" placeholder="Search Collection" id="search-input">
+                <i class="fas fa-search"></i>
             </div>
             <div class="logo">
                 <a href="#" class="brand-logo">VIUL</a>
             </div>
             <nav class="user-nav">
-                <a href="#">Sign In</a>
-                <a href="#">Wishlist</a>
-                <a href="#" id="cart-btn">Shopping Bag (0)</a>
+                <a href="#"><i class="fas fa-user"></i> Sign In</a>
+                <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="#" id="cart-btn"><i class="fas fa-shopping-bag"></i> Shopping Bag (<span id="cart-count">0</span>)</a>
             </nav>
         </div>
         <nav class="main-nav">
-            <ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="#" class="active">NEW ARRIVALS</a></li>
                 <li><a href="#">WOMEN</a></li>
                 <li><a href="#">MEN</a></li>
@@ -42,31 +49,199 @@
             <div class="hero-content">
                 <h2>THE MONOCHROME SERIES</h2>
                 <p>Minimalism meets modern tailoring. Explore the VIUL SS26 collection.</p>
-                <button class="shop-btn" onclick="addToCart()">DISCOVER NOW</button>
+                <button class="shop-btn" onclick="scrollToProducts()">DISCOVER NOW</button>
             </div>
         </section>
 
-        <section class="product-grid">
+        <section class="product-grid" id="products-section">
             <div class="product-card">
                 <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Linen Dress">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Tailored Linen Dress">
+                    <div class="product-overlay">
+                        <button class="add-btn" onclick="addToCart('Tailored Linen Dress', 3499)">ADD TO CART</button>
+                    </div>
                 </div>
                 <div class="product-info">
                     <h4>Tailored Linen Dress</h4>
-                    <p>Rs. 3,499.00</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(248)</span>
+                    </div>
+                    <p class="price">Rs. 3,499.00</p>
                 </div>
             </div>
+
             <div class="product-card">
                 <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Cotton Shirt">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Essential Cotton Shirt">
+                    <div class="product-overlay">
+                        <button class="add-btn" onclick="addToCart('Essential Cotton Shirt', 1999)">ADD TO CART</button>
+                    </div>
                 </div>
                 <div class="product-info">
                     <h4>Essential Cotton Shirt</h4>
-                    <p>Rs. 1,999.00</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(312)</span>
+                    </div>
+                    <p class="price">Rs. 1,999.00</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16ebc5?auto=format&fit=crop&w=800&q=80" alt="Silk Blazer">
+                    <div class="product-overlay">
+                        <button class="add-btn" onclick="addToCart('Premium Silk Blazer', 5499)">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h4>Premium Silk Blazer</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(189)</span>
+                    </div>
+                    <p class="price">Rs. 5,499.00</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c62d465d1?auto=format&fit=crop&w=800&q=80" alt="Classic Denim">
+                    <div class="product-overlay">
+                        <button class="add-btn" onclick="addToCart('Classic Denim', 2799)">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h4>Classic Denim</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(425)</span>
+                    </div>
+                    <p class="price">Rs. 2,799.00</p>
                 </div>
             </div>
         </section>
+
+        <section class="testimonials">
+            <h3>WHAT OUR CUSTOMERS SAY</h3>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The quality is exceptional. Every piece feels premium and is worth every rupee. Highly recommend VIUL!"</p>
+                    <p class="testimonial-author">— Priya Sharma</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Fast shipping and amazing customer service. The monochrome collection is a game-changer for my wardrobe."</p>
+                    <p class="testimonial-author">— Arjun Patel</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Love the minimalist aesthetic. Perfect for someone like me who values quality and timeless style."</p>
+                    <p class="testimonial-author">— Neha Gupta</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="newsletter-content">
+                <h3>EXCLUSIVE OFFERS & UPDATES</h3>
+                <p>Subscribe to get 15% off your first purchase + early access to new collections</p>
+                <form id="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+                </form>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>ABOUT VIUL</h5>
+                <p>Premium fashion and lifestyle for the modern minimalist. Crafted with care, worn with confidence.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h5>CUSTOMER CARE</h5>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h5>COMPANY</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h5>LEGAL</h5>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 VIUL. All rights reserved. | Crafted with <i class="fas fa-heart"></i> for fashion lovers</p>
+        </div>
+    </footer>
+
+    <div id="toast-notification" class="toast"></div>
 
     <script src="script.js"></script>
 </body>
