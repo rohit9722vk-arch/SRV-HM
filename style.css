@@ -10,6 +10,10 @@
 header {
     padding: 20px 40px;
     background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
 }
 
 .top-bar {
