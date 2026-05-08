@@ -1,27 +1,35 @@
-// Wait for the DOM to fully load
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Sticky Header Effect
     const header = document.querySelector('header');
+    const cartBtn = document.getElementById('cart-btn');
+    let count = 0;
+
+    // 1. Shrink Header on Scroll
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        if (window.scrollY > 100) {
+            header.style.padding = '10px 50px';
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
         } else {
+            header.style.padding = '20px 50px';
             header.style.boxShadow = 'none';
         }
     });
 
-    // 2. Simple Cart Counter Logic
-    let cartCount = 0;
-    const cartLink = document.querySelector('.user-nav a:last-child');
-    
-    // Function to simulate adding items (can be linked to buttons later)
+    // 2. Add to Cart Functionality
     window.addToCart = () => {
-        cartCount++;
-        cartLink.innerText = `Shopping bag (${cartCount})`;
-        alert('Item added to your bag!');
+        count++;
+        cartBtn.innerText = `Shopping bag (${count})`;
+        
+        // Visual feedback
+        cartBtn.style.color = '#E5001C';
+        setTimeout(() => {
+            cartBtn.style.color = '#222';
+        }, 500);
     };
 
-    // 3. Log confirmation
-    console.log("H&M Framework Initialized: Interactivity Active.");
+    // 3. Simple Search Interaction
+    const searchInput = document.querySelector('.search-box input');
+    searchInput.addEventListener('focus', () => {
+        searchInput.style.width = '200px';
+        searchInput.style.transition = 'width 0.4s ease';
+    });
 });
