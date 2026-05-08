@@ -3,73 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIUL | Wholesale Fashion</title>
+    <meta name="description" content="VIUL - Premium Wholesale Fashion. Shop men's wear, women's wear, accessories, and lifestyle products with free shipping.">
+    <meta name="theme-color" content="#000">
+    <title>VIUL | Wholesale Fashion - Premium Style</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="promo-bar">
-        FREE SHIPPING ON ORDERS ABOVE Rs. 495/- • COD AVAILABLE
+    <!-- Promo Bar -->
+    <div class="promo-bar" role="status" aria-live="polite">
+        <span>🚚 FREE SHIPPING ON ORDERS ABOVE Rs. 495/- • COD AVAILABLE</span>
     </div>
 
+    <!-- Header -->
     <header>
         <div class="header-main">
-            <div class="menu-icon">☰</div>
-            <div class="brand-logo">VIUL</div>
+            <button class="menu-icon" aria-label="Open menu" aria-expanded="false">
+                <span>☰</span>
+            </button>
+            <h1 class="brand-logo">VIUL</h1>
             <div class="header-icons">
-                <span>🔍</span>
-                <span>🛍️<small id="cart-count">0</small></span>
+                <button class="header-icon" aria-label="Search products">
+                    <span>🔍</span>
+                </button>
+                <button class="header-icon" aria-label="View shopping cart">
+                    <span>🛍️</span>
+                    <small id="cart-count" aria-live="polite">0</small>
+                </button>
             </div>
         </div>
     </header>
 
-    <section class="category-scroll">
-        <div class="cat-circle">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&h=100&fit=crop" alt="Men">
+    <!-- Category Scroll -->
+    <section class="category-scroll" aria-label="Product Categories">
+        <article class="cat-circle" data-category="men">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=100&h=100&fit=crop" alt="Men's Fashion">
             <p>Men</p>
-        </div>
-        <div class="cat-circle">
-            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=100&h=100&fit=crop" alt="Women">
+        </article>
+        <article class="cat-circle" data-category="women">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=100&h=100&fit=crop" alt="Women's Fashion">
             <p>Women</p>
-        </div>
-        <div class="cat-circle">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop" alt="Accs">
+        </article>
+        <article class="cat-circle" data-category="accessories">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop" alt="Accessories">
             <p>Accessories</p>
-        </div>
-        <div class="cat-circle">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop" alt="Home">
+        </article>
+        <article class="cat-circle" data-category="lifestyle">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&fit=crop" alt="Lifestyle Products">
             <p>Lifestyle</p>
-        </div>
+        </article>
     </section>
 
-    <main class="product-container">
+    <!-- Main Content -->
+    <main class="product-container" aria-label="Product Listing">
         <div class="filter-row">
-            <button class="filter-btn">FILTER</button>
-            <select>
-                <option>Best Selling</option>
+            <button class="filter-btn" aria-label="Open filters">FILTER</button>
+            <select aria-label="Sort products by">
+                <option value="best-selling">Best Selling</option>
+                <option value="price-low-high">Price: Low to High</option>
+                <option value="price-high-low">Price: High to Low</option>
+                <option value="newest">Newest First</option>
             </select>
         </div>
 
-        <div class="grid">
-            <div class="product-card">
-                <span class="badge">-50%</span>
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&fit=crop" alt="Product">
+        <div class="grid" id="product-grid">
+            <article class="product-card" data-product-id="1">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&fit=crop" alt="Essential VIUL Tee - High-quality cotton t-shirt" class="product-img">
+                    <span class="badge" aria-label="Discount: 50% off">-50%</span>
                 </div>
                 <div class="product-details">
-                    <h3>Essential VIUL Tee</h3>
-                    <p class="price"><span class="old">Rs. 999</span> Rs. 499</p>
-                    <button class="add-to-cart" onclick="updateCart()">ADD TO CART</button>
+                    <h2>Essential VIUL Tee</h2>
+                    <p class="price">
+                        <span class="old" aria-label="Original price">Rs. 999</span>
+                        <span class="current-price" aria-label="Current price">Rs. 499</span>
+                    </p>
+                    <button class="add-to-cart" data-product-id="1" aria-label="Add Essential VIUL Tee to cart">ADD TO CART</button>
                 </div>
-            </div>
-            </div>
+            </article>
+        </div>
     </main>
 
-    <nav class="mobile-nav">
-        <div class="nav-item">🏠<br>Shop</div>
-        <div class="nav-item">❤️<br>Wishlist</div>
-        <div class="nav-item">🛒<br>Cart</div>
-        <div class="nav-item">👤<br>Account</div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <a href="#shop" class="nav-item" aria-label="Shop">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Shop</span>
+        </a>
+        <a href="#wishlist" class="nav-item" aria-label="Wishlist">
+            <span class="nav-icon">❤️</span>
+            <span class="nav-label">Wishlist</span>
+        </a>
+        <a href="#cart" class="nav-item" aria-label="Shopping Cart">
+            <span class="nav-icon">🛒</span>
+            <span class="nav-label">Cart</span>
+        </a>
+        <a href="#account" class="nav-item" aria-label="Account">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Account</span>
+        </a>
     </nav>
 
     <script src="script.js"></script>
